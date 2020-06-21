@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//　　PATH
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// usage: #{$imgPath}
+$imgPath: "../img/";
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//　　COLOR
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$font__color: #000;
+$main_color: #000;
+
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//　　FONT
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$fontsize: 1.6rem;
+$fontsize_sp: 1.4rem;
+
+
+$font__name: 'name', sans-serif;
+
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//　　LAYOUT
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// $columnwidth__01: 1240px;
+// $columnwidth__02: 1020px;
+
+$wraper: 100%;
+
+$ie11Breakpoint: "all and (-ms-high-contrast:none)";
+$breakpoint: "screen and (max-width: 48em)";
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//　　EASING
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$linear: cubic-bezier(0.0, 0.0, 1.0, 1.0);
+
+$easeSineIn: cubic-bezier(.47, 0, .745, .715);
+$easeSineOut: cubic-bezier(.39, .575, .565, 1);
+$easeSineInOut: cubic-bezier(.445, .05, .55, .95);
+
+$easeQuadIn: cubic-bezier(.55, .085, .68, .53);
+$easeQuadOut: cubic-bezier(.25, .46, .45, .94);
+$easeQuadInOut: cubic-bezier(.455, .03, .515, .955);
+
+$easeCubicIn: cubic-bezier(.55, .055, .675, .19);
+$easeCubicOut: cubic-bezier(.215, .61, .355, 1);
+$easeCubicInOut: cubic-bezier(.645, .045, .355, 1);
+
+$easeQuartIn: cubic-bezier(.895, .03, .685, .22);
+$easeQuartOut: cubic-bezier(.165, .84, .44, 1);
+$easeQuartInOut: cubic-bezier(.77, 0, .175, 1);
+
+$easeQuintIn: cubic-bezier(.755, .05, .855, .06);
+$easeQuintOut: cubic-bezier(.23, 1, .32, 1);
+$easeQuintInOut: cubic-bezier(.86, 0, .07, 1);
+
+$easeExpoIn: cubic-bezier(.95, .05, .795, .035);
+$easeExpoOut: cubic-bezier(.19, 1, .22, 1);
+$easeExpoInOut: cubic-bezier(1, 0, 0, 1);
+
+$easeCircIn: cubic-bezier(.6, .04, .98, .335);
+$easeCircOut: cubic-bezier(.075, .82, .165, 1);
+$easeCircInOut: cubic-bezier(.785, .135, .15, .86);
+
+$easeBackIn: cubic-bezier(.6, -0.28, .735, .045);
+$easeBackOut: cubic-bezier(.175, .885, .32, 1.275);
+$easeBackInOut: cubic-bezier(.68, -0.55, .265, 1.55);
+
+$myEaseSineInOut: cubic-bezier(0.46, 0.01, 0.17, 1);
+$myEaseQuintIn: cubic-bezier(.25,.1,.25,.1);
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//　　MIXIN
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+@mixin lhCrop($line-height) {
+  &::before {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    margin-top: calc((1 - #{$line-height}) * 0.5em);
+  }
+}
+
+@mixin wrapper($wrapper) {
+  width: $wrapper;
+  margin: 0 auto;
+  @media #{$breakpoint}{
+    width: 100%;
+  }
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//　　Function
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+@function getVw($value, $width) {
+  @return $value / $width * 100 + 0vw;
+}
+@function cssLock($maxSize, $minSize, $maxWidth, $minWidth) {
+  @return calc(#{getVw(($maxSize - $minSize), ($maxWidth - $minWidth)) } + (#{$maxSize / 10}rem - #{$maxWidth / 10}rem * #{(($maxSize - $minSize) /  ($maxWidth - $minWidth))}));
+}

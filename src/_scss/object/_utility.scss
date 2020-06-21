@@ -1,0 +1,18 @@
+.u-pc__show {
+  display: block;
+  @media #{$breakpoint} {
+    display: none;
+  }
+}
+
+.u-sp__show {
+  display: none;
+  @media #{$breakpoint} {
+    display: block;
+  }
+}
+
+.noscroll {
+  overflow: hidden !important;
+  height: 100vh;
+}

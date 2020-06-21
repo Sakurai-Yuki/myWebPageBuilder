@@ -1,0 +1,22 @@
+{
+  "default": {
+    "id":"top",
+    "title": "タイトル",
+    "description": "ディスクリプション",
+    "url":"サイトURL",
+    "css":"./css/",
+    "js":"./js/",
+    "img":"./img/",
+    "top":"./"
+  },
+  "top": {
+    "id":"top",
+    "title": "タイトル",
+    "description": "ディスクリプション",
+    "url":"サイトURL",
+    "css":"./css/",
+    "js":"./js/",
+    "img":"./img/",
+    "top":"./"
+  }
+}
